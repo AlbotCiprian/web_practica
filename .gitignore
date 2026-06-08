@@ -1,14 +1,28 @@
-# Sistem
+# ===== Sistem de operare =====
 .DS_Store
 Thumbs.db
 desktop.ini
+ehthumbs.db
 
-# Editoare
+# ===== Editoare / IDE =====
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
 
-# Loguri / temp
+# ===== Loguri & temporare =====
 *.log
+npm-debug.log*
+*.tmp
+*.bak
+
+# ===== Dependențe (nu sunt folosite, dar prevenim accidentele) =====
 node_modules/
+
+# ===== Vercel (creat la deploy din CLI; nu se urcă în git) =====
 .vercel
+
+# ===== Fișiere de mediu (proiectul nu folosește, dar le ignorăm preventiv) =====
+.env
+.env.*

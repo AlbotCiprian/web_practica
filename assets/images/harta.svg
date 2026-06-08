@@ -16,11 +16,13 @@
     <path d="M-10 150 H650"/>
     <path d="M230 -10 V410"/>
   </g>
+  <!-- etichetă zonă pietonală -->
+  <text x="500" y="140" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#A66E2C" text-anchor="middle" letter-spacing="1">ZONĂ PIETONALĂ</text>
   <!-- pin locație -->
   <g transform="translate(230 150)">
     <ellipse cx="0" cy="44" rx="20" ry="6" fill="#3B2A20" opacity="0.18"/>
     <path d="M0 40 C-22 8 -22 -8 0 -28 C22 -8 22 8 0 40 Z" fill="#C8893F" stroke="#A66E2C" stroke-width="2"/>
     <circle cx="0" cy="-2" r="9" fill="#FBF6EE"/>
   </g>
-  <text x="320" y="378" font-family="Georgia, serif" font-size="22" fill="#6B5444" text-anchor="middle">Str. Cărții nr. 7, Centru</text>
+  <text x="320" y="378" font-family="Georgia, serif" font-size="21" fill="#6B5444" text-anchor="middle">str. Eugen Doga 5 · Chișinău</text>
 </svg>

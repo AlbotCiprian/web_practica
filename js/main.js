@@ -130,9 +130,9 @@ function construiesteFooter() {
           <div>
             <h4>Contact</h4>
             <ul class="footer__lista">
-              <li>Str. Cărții nr. 7, Centru</li>
-              <li><a href="tel:+40700000000">+40 700 000 000</a></li>
-              <li><a href="mailto:salut@lumina-cafe.ro">salut@lumina-cafe.ro</a></li>
+              <li>str. Eugen Doga 5, Chișinău</li>
+              <li><a href="tel:+37322234567">+373 22 234 567</a></li>
+              <li><a href="mailto:salut@lumina-cafe.md">salut@lumina-cafe.md</a></li>
             </ul>
           </div>
         </div>
