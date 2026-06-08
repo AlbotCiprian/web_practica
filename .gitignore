@@ -1,0 +1,14 @@
+# Sistem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editoare
+.vscode/
+.idea/
+*.swp
+
+# Loguri / temp
+*.log
+node_modules/
+.vercel

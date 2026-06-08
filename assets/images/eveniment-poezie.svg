@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Seara de Poezie">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#6B7A4F"/><stop offset="1" stop-color="#566437"/>
+  </linearGradient></defs>
+  <rect width="640" height="400" fill="url(#g)"/>
+  <circle cx="115" cy="88" r="72" fill="#FBF6EE" opacity="0.10"/>
+  <circle cx="524" cy="320" r="104" fill="#3B2A20" opacity="0.14"/>
+  <g transform="translate(320 150)" fill="none" stroke="#FBF6EE" stroke-width="3.84" stroke-linejoin="round" opacity="0.9"><path d="M0 -44.8 q-51.2 -19.2 -57.6 0 v83.2 q6.4 -19.2 57.6 0 z"/><path d="M0 -44.8 q51.2 -19.2 57.6 0 v83.2 q-6.4 -19.2 -57.6 0 z"/></g>
+  <text x="320" y="368" font-family="Georgia, serif" font-size="33" fill="#FBF6EE" text-anchor="middle" opacity="0.92">Seara de Poezie</text>
+</svg>

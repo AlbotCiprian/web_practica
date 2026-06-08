@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meniul LUMINA: cafea, ceai, deserturi și brunch. Filtrează, caută și creează-ți comanda demo.">
+  <title>Meniu – LUMINA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main>
+    <section class="sectiune--stransa container" style="padding-top:var(--sp-5);">
+      <span class="eyebrow text-center" style="display:block;">Meniul nostru</span>
+      <h1 class="titlu-sectiune">Ce găsești la LUMINA</h1>
+      <p class="subtitlu-sectiune">
+        Filtrează după categorie, caută după nume și adaugă în comandă. Coșul tău se
+        salvează automat, chiar dacă reîncarci pagina.
+      </p>
+
+      <!-- Controale: filtre pe categorii + căutare live -->
+      <div class="meniu-controale">
+        <div class="filtre" id="filtre" role="group" aria-label="Filtrează produsele după categorie"></div>
+        <div class="cautare">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="search" id="cautare" placeholder="Caută un produs..." aria-label="Caută un produs după nume">
+        </div>
+      </div>
+
+      <!-- Layout: lista de produse + coșul -->
+      <div class="meniu-layout">
+        <div>
+          <div class="lista-produse" id="lista-produse"></div>
+          <!-- Mesaj afișat când filtrarea/căutarea nu returnează nimic -->
+          <p class="stare-goala" id="fara-rezultate" style="display:none;">
+            Niciun produs nu se potrivește căutării tale. Încearcă alt termen sau altă categorie.
+          </p>
+        </div>
+
+        <!-- Coșul (comandă demo) -->
+        <aside class="cos" aria-label="Comanda ta">
+          <div class="cos__titlu">
+            <h3 style="margin:0;">Comanda ta</h3>
+            <span class="badge" id="cos-numar">0</span>
+          </div>
+          <div class="cos__lista" id="cos-lista"></div>
+          <div class="cos__total">
+            <span>Total</span>
+            <span id="cos-total">0 lei</span>
+          </div>
+          <div class="cos__actiuni">
+            <button class="btn btn--principal" id="btn-trimite">Trimite comanda (demo)</button>
+            <button class="btn btn--secundar btn--mic" id="btn-goleste">Golește comanda</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer-container"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/meniu.js"></script>
+</body>
+</html>

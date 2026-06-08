@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rezervă o masă la LUMINA – completează formularul și îți confirmăm pe loc.">
+  <title>Rezervare – LUMINA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main>
+    <section class="sectiune--stransa container" style="padding-top:var(--sp-5); max-width:720px;">
+      <span class="eyebrow text-center" style="display:block;">Te așteptăm</span>
+      <h1 class="titlu-sectiune">Rezervă o masă</h1>
+      <p class="subtitlu-sectiune">
+        Spune-ne când vrei să vii și câți sunteți. Toate câmpurile marcate sunt obligatorii.
+      </p>
+
+      <form class="formular" id="form-rezervare" novalidate>
+        <!-- Mesaj de succes afișat după trimitere validă -->
+        <div class="mesaj-succes" id="succes" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>Rezervarea ta a fost înregistrată! Te așteptăm cu drag.</span>
+        </div>
+
+        <div class="camp-rand">
+          <div class="camp">
+            <label for="nume">Nume complet</label>
+            <input type="text" id="nume" name="nume" placeholder="Ex: Maria Popescu">
+            <span class="camp__eroare" id="err-nume"></span>
+          </div>
+          <div class="camp">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="maria@exemplu.ro">
+            <span class="camp__eroare" id="err-email"></span>
+          </div>
+        </div>
+
+        <div class="camp-rand">
+          <div class="camp">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="07xx xxx xxx">
+            <span class="camp__eroare" id="err-telefon"></span>
+          </div>
+          <div class="camp">
+            <label for="persoane">Număr de persoane</label>
+            <input type="number" id="persoane" name="persoane" min="1" max="12" placeholder="2">
+            <span class="camp__eroare" id="err-persoane"></span>
+          </div>
+        </div>
+
+        <div class="camp-rand">
+          <div class="camp">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data">
+            <span class="camp__eroare" id="err-data"></span>
+          </div>
+          <div class="camp">
+            <label for="ora">Ora</label>
+            <input type="time" id="ora" name="ora">
+            <span class="camp__eroare" id="err-ora"></span>
+          </div>
+        </div>
+
+        <div class="camp">
+          <label for="mesaj">Mesaj (opțional)</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Ocazie specială, preferințe de masă..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--principal" style="width:100%;">Trimite rezervarea</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer-container"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/rezervare.js"></script>
+</body>
+</html>

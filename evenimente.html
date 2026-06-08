@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Evenimentele LUMINA: seri de poezie, cluburi de carte, concerte și ateliere. Marchează-ți favoritele.">
+  <title>Evenimente – LUMINA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main>
+    <section class="sectiune--stransa container" style="padding-top:var(--sp-5);">
+      <span class="eyebrow text-center" style="display:block;">Ce se întâmplă la LUMINA</span>
+      <h1 class="titlu-sectiune">Evenimente</h1>
+      <p class="subtitlu-sectiune">
+        Seri de poezie, cluburi de carte, concerte acustice și ateliere. Apasă pe inimă
+        ca să-ți salvezi favoritele – rămân marcate chiar dacă reîncarci pagina.
+      </p>
+
+      <!-- Controale: filtru Toate / Favorite + contor -->
+      <div class="meniu-controale">
+        <div class="filtre" role="group" aria-label="Filtrează evenimentele">
+          <button class="filtru-btn activ" data-filtru="toate">Toate</button>
+          <button class="filtru-btn" data-filtru="favorite">Doar favorite</button>
+        </div>
+        <span class="contor-fav" id="contor-fav">0 evenimente favorite</span>
+      </div>
+
+      <div class="grid-carduri grid-3" id="lista-evenimente"></div>
+      <p class="stare-goala" id="fara-evenimente" style="display:none;">
+        Nu ai încă evenimente favorite. Apasă pe inimă la evenimentele care îți plac.
+      </p>
+    </section>
+  </main>
+
+  <footer id="footer-container"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/evenimente.js"></script>
+</body>
+</html>

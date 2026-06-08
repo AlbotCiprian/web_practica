@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMINA – Café & Reading Corner: cafea de specialitate, colț de lectură și evenimente culturale.">
+  <title>LUMINA – Café & Reading Corner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Navbar-ul este injectat de main.js -->
+  <header id="navbar-container"></header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">Café &amp; Reading Corner</span>
+          <h1 class="hero__titlu">Un colț cald, o cafea bună<br>și o pagină în plus.</h1>
+          <p class="hero__subtitlu">
+            La LUMINA îmbinăm cafeaua de specialitate cu liniștea unui colț de lectură
+            și energia evenimentelor culturale. Te așteptăm la o ceașcă și o poveste.
+          </p>
+          <div class="hero__actiuni">
+            <a href="meniu.html" class="btn btn--principal">Vezi meniul</a>
+            <a href="rezervare.html" class="btn btn--secundar">Rezervă o masă</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="assets/images/hero.svg" alt="Interior cald de cafenea cu o ceașcă de cafea">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESPRE ============ -->
+    <section class="sectiune container">
+      <div class="hero__grid" style="align-items:center;">
+        <div class="hero__media fade-in" style="aspect-ratio:4/5;">
+          <img src="assets/images/despre.svg" alt="Colțul de lectură LUMINA">
+        </div>
+        <div class="fade-in">
+          <span class="eyebrow">Despre LUMINA</span>
+          <h2>Mai mult decât o cafenea</h2>
+          <p>
+            LUMINA s-a născut din dragostea pentru cafeaua bine făcută și pentru
+            cărțile care țin de vorbă. Ne-am dorit un loc unde poți lucra, citi sau
+            doar respira, cu o ceașcă aburindă în față.
+          </p>
+          <p>
+            Prăjim atent, servim cu grijă și deschidem ușa unor evenimente mici, dar
+            călduroase: seri de poezie, cluburi de carte și concerte acustice.
+          </p>
+          <a href="evenimente.html" class="btn btn--masliniu btn--mic">Descoperă evenimentele</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DE CE LUMINA ============ -->
+    <section class="sectiune container">
+      <span class="eyebrow text-center" style="display:block;">De ce LUMINA</span>
+      <h2 class="titlu-sectiune">Trei motive să ne treci pragul</h2>
+      <p class="subtitlu-sectiune">Lucrurile la care ținem cel mai mult, în fiecare zi.</p>
+      <div class="grid-carduri grid-3">
+        <article class="card fade-in">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h13a4 4 0 0 1 0 8h-1"/><path d="M4 9v8a4 4 0 0 0 4 4h5a4 4 0 0 0 4-4"/><path d="M8 2c.8 1 .8 2 0 3M12 2c.8 1 .8 2 0 3"/></svg>
+          </div>
+          <h3>Cafea de specialitate</h3>
+          <p>Boabe alese, prăjite proaspăt și preparate de baristi care iubesc ce fac.</p>
+        </article>
+        <article class="card fade-in">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-1.5-7 0v12c2-1.5 5-1.5 7 0M12 6c2-1.5 5-1.5 7 0v12c-2-1.5-5-1.5-7 0M12 6v12"/></svg>
+          </div>
+          <h3>Colț de lectură</h3>
+          <p>Rafturi pline, fotolii comode și liniștea de care ai nevoie ca să te pierzi într-o carte.</p>
+        </article>
+        <article class="card fade-in">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="18" r="2.5"/><circle cx="18" cy="16" r="2.5"/><path d="M11.5 18V6l9-2v12"/><path d="M11.5 9l9-2"/></svg>
+          </div>
+          <h3>Evenimente culturale</h3>
+          <p>Seri de poezie, cluburi de carte și concerte mici care adună oameni faini.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PRODUSE POPULARE ============ -->
+    <section class="sectiune container">
+      <span class="eyebrow text-center" style="display:block;">Din meniu</span>
+      <h2 class="titlu-sectiune">Preferatele casei</h2>
+      <p class="subtitlu-sectiune">Câteva dintre produsele cele mai cerute de oaspeții noștri.</p>
+      <!-- Lista este completată din JS (data.js), pe baza primelor produse -->
+      <div class="lista-produse" id="produse-populare"></div>
+      <div class="text-center" style="margin-top:var(--sp-4);">
+        <a href="meniu.html" class="btn btn--principal">Vezi tot meniul</a>
+      </div>
+    </section>
+
+    <!-- ============ URMĂTORUL EVENIMENT ============ -->
+    <section class="sectiune container">
+      <div class="banda-cta fade-in" id="urmatorul-eveniment"></div>
+    </section>
+  </main>
+
+  <!-- Footer-ul este injectat de main.js -->
+  <footer id="footer-container"></footer>
+
+  <!-- Scripturi: întâi datele, apoi codul comun, apoi codul paginii -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Cod specific paginii Home: afișează 3 produse populare + următorul eveniment.
+    document.addEventListener("DOMContentLoaded", function () {
+      // --- Produse populare (primele 3 din listă) ---
+      var gazdaProduse = document.getElementById("produse-populare");
+      PRODUSE.slice(0, 3).forEach(function (p) {
+        var card = document.createElement("article");
+        card.className = "produs fade-in";
+        card.innerHTML =
+          '<div class="produs__media"><img src="' + p.imagine + '" alt="' + p.nume + '"></div>' +
+          '<div class="produs__corp">' +
+            '<span class="badge">' + p.categorie + '</span>' +
+            '<div class="produs__cap"><h3 class="produs__nume">' + p.nume + '</h3>' +
+            '<span class="produs__pret">' + p.pret + ' lei</span></div>' +
+            '<p class="produs__desc">' + p.descriere + '</p>' +
+            '<a href="meniu.html" class="btn btn--secundar btn--mic">Vezi în meniu</a>' +
+          '</div>';
+        gazdaProduse.appendChild(card);
+      });
+
+      // --- Următorul eveniment (cel mai apropiat în viitor) ---
+      var azi = new Date(); azi.setHours(0, 0, 0, 0);
+      var viitoare = EVENIMENTE
+        .filter(function (e) { return new Date(e.data) >= azi; })
+        .sort(function (a, b) { return new Date(a.data) - new Date(b.data); });
+      var ev = viitoare[0] || EVENIMENTE[0]; // fallback dacă toate au trecut
+
+      var dataFmt = new Date(ev.data).toLocaleDateString("ro-RO",
+        { day: "numeric", month: "long", year: "numeric" });
+
+      document.getElementById("urmatorul-eveniment").innerHTML =
+        '<span class="eyebrow" style="color:var(--crem-deschis);">Urmează la LUMINA</span>' +
+        '<h2>' + ev.titlu + '</h2>' +
+        '<p>' + dataFmt + ', ora ' + ev.ora + ' — ' + ev.descriere + '</p>' +
+        '<div style="margin-top:var(--sp-3);"><a href="evenimente.html" class="btn btn--principal">Toate evenimentele</a></div>';
+
+      // Reactivăm observer-ul de fade-in pentru cardurile adăugate dinamic
+      pornesteFadeIn();
+    });
+  </script>
+</body>
+</html>

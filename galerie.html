@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galerie foto LUMINA – atmosferă, cafea și colțul de lectură. Apasă pe o imagine pentru lightbox.">
+  <title>Galerie – LUMINA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main>
+    <section class="sectiune--stransa container" style="padding-top:var(--sp-5);">
+      <span class="eyebrow text-center" style="display:block;">Atmosfera LUMINA</span>
+      <h1 class="titlu-sectiune">Galerie</h1>
+      <p class="subtitlu-sectiune">
+        Câteva instantanee din colțul nostru. Apasă pe o imagine pentru a o vedea mărită;
+        navighează cu săgețile (mouse sau tastatură) și închide cu Esc.
+      </p>
+
+      <!-- Grila de imagini este completată din galerie.js -->
+      <div class="galerie-grid" id="galerie-grid"></div>
+    </section>
+  </main>
+
+  <!-- Lightbox (overlay full-screen) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vizualizare imagine">
+    <button class="lightbox__btn lightbox__inchide" id="lb-inchide" aria-label="Închide">&times;</button>
+    <button class="lightbox__btn lightbox__prev" id="lb-prev" aria-label="Imaginea anterioară">&#8249;</button>
+    <img class="lightbox__imagine" id="lb-imagine" src="" alt="">
+    <button class="lightbox__btn lightbox__next" id="lb-next" aria-label="Imaginea următoare">&#8250;</button>
+    <span class="lightbox__counter" id="lb-counter"></span>
+  </div>
+
+  <footer id="footer-container"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/galerie.js"></script>
+</body>
+</html>
