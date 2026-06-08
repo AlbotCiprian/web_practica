@@ -955,3 +955,156 @@ ul { list-style: none; }
   .container { padding-inline: var(--sp-2); }
   .navbar__logo { font-size: 1.45rem; }
 }
+
+/* ============================================================
+   19. Finisaje premium (micro-interacțiuni & animații)
+   ============================================================ */
+
+/* --- 19.1 Bară de progres la scroll (sus de tot) --- */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--caramel), var(--masliniu));
+  z-index: 200;
+  transition: width 100ms linear;
+}
+
+/* --- 19.2 Buton „Înapoi sus” --- */
+.to-top {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--maro);
+  color: var(--crem-deschis);
+  border: none;
+  cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: var(--umbra-medie);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity var(--tranzitie), transform var(--tranzitie),
+    visibility var(--tranzitie), background var(--tranzitie);
+  z-index: 150;
+}
+.to-top.vizibil { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: var(--caramel); transform: translateY(-3px); }
+.to-top svg { width: 22px; height: 22px; }
+
+/* --- 19.3 Efect „shine” pe butoanele principale --- */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -130%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 600ms ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 150%; }
+
+/* --- 19.4 Accent de titlu (cuvânt evidențiat în caramel) --- */
+.accent { color: var(--caramel-inchis); }
+h1, h2, h3 { letter-spacing: -0.3px; }
+
+/* --- 19.5 Indicator de scroll în hero --- */
+.hero__scroll {
+  position: absolute;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--maro-mediu);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bob 1.9s ease-in-out infinite;
+}
+.hero__scroll svg { width: 24px; height: 24px; }
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 8px); }
+}
+
+/* --- 19.6 Secțiunea de statistici (cu numere animate) --- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  text-align: center;
+  background: var(--crem-deschis);
+  border: 1px solid rgba(59, 42, 32, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--umbra-fina);
+  padding: var(--sp-4) var(--sp-3);
+}
+.stat__num {
+  font-family: var(--font-titlu);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--caramel-inchis);
+  line-height: 1;
+}
+.stat__label {
+  display: block;
+  margin-top: 6px;
+  color: var(--maro-mediu);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- 19.7 Lightbox: tranziții de deschidere + legendă --- */
+.lightbox.deschis { animation: lbFade 280ms ease; }
+.lightbox__imagine { animation: lbZoom 320ms cubic-bezier(0.2, 0.7, 0.3, 1); }
+.lightbox__caption {
+  position: absolute;
+  bottom: 56px; left: 50%;
+  transform: translateX(-50%);
+  color: var(--crem-deschis);
+  font-size: 0.95rem;
+  max-width: 80vw;
+  text-align: center;
+  opacity: 0.9;
+}
+@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lbZoom {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* --- 19.8 Variante de reveal (folosite cu .fade-in) --- */
+.fade-in.din-stanga { transform: translateX(-32px); }
+.fade-in.din-dreapta { transform: translateX(32px); }
+.fade-in.din-stanga.vizibil,
+.fade-in.din-dreapta.vizibil { transform: translateX(0); }
+
+/* --- 19.9 Imagini: fundal cald cât timp se încarcă (evită „flash” alb) --- */
+.produs__media,
+.eveniment__media,
+.galerie-item,
+.hero__media { background-color: var(--crem); }
+
+/* Respectă reduce-motion și pentru noile animații */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll { animation: none; }
+  .lightbox.deschis,
+  .lightbox__imagine { animation: none; }
+  .btn::after { display: none; }
+}
+
+/* --- 19.10 Responsive pentru finisaje --- */
+@media (max-width: 768px) {
+  .stats { grid-template-columns: repeat(2, 1fr); gap: var(--sp-2); }
+  .hero__scroll { display: none; }
+}
+@media (max-width: 560px) {
+  .to-top { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+}

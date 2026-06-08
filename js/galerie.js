@@ -6,17 +6,17 @@
    - Blochează scroll-ul paginii cât timp lightbox-ul e deschis
    ============================================================ */
 
-// Lista imaginilor din galerie (placeholdere locale)
+// Lista imaginilor din galerie (fotografii reale, locale)
 const IMAGINI = [
-  { src: "assets/images/galerie-1.svg", alt: "Ceașcă de cafea pe masă de lemn" },
-  { src: "assets/images/galerie-2.svg", alt: "Raft cu cărți în colțul de lectură" },
-  { src: "assets/images/galerie-3.svg", alt: "Desert servit la LUMINA" },
-  { src: "assets/images/galerie-4.svg", alt: "Atmosferă în timpul unui concert acustic" },
-  { src: "assets/images/galerie-5.svg", alt: "Latte art pregătit de barist" },
-  { src: "assets/images/galerie-6.svg", alt: "Fotoliu confortabil lângă fereastră" },
-  { src: "assets/images/galerie-7.svg", alt: "Brunch pe masa de la geam" },
-  { src: "assets/images/galerie-8.svg", alt: "Detaliu cu plante și lumini calde" },
-  { src: "assets/images/galerie-9.svg", alt: "Intrarea cafenelei LUMINA" },
+  { src: "assets/images/photos/g1.jpg", alt: "Ceașcă de cafea văzută de sus" },
+  { src: "assets/images/photos/g2.jpg", alt: "Masă lângă fereastra cafenelei" },
+  { src: "assets/images/photos/g3.jpg", alt: "Produse de patiserie proaspete" },
+  { src: "assets/images/photos/g4.jpg", alt: "Chitară pregătită pentru concertul acustic" },
+  { src: "assets/images/photos/g5.jpg", alt: "Boabe de cafea prăjite" },
+  { src: "assets/images/photos/g6.jpg", alt: "Colț cald și primitor din cafenea" },
+  { src: "assets/images/photos/g7.jpg", alt: "Cafea alături de o carte deschisă" },
+  { src: "assets/images/photos/g8.jpg", alt: "Felie de tort servită la LUMINA" },
+  { src: "assets/images/photos/g9.jpg", alt: "Atmosfera din cafeneaua LUMINA" },
 ];
 
 // Indexul imaginii afișate curent în lightbox
@@ -26,13 +26,14 @@ const grid = document.getElementById("galerie-grid");
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lb-imagine");
 const lbCounter = document.getElementById("lb-counter");
+const lbCaption = document.getElementById("lb-caption");
 
 /* ---------- 1. Construiește grila de imagini ---------- */
 function construiesteGrid() {
   grid.innerHTML = IMAGINI.map(function (img, i) {
     // Fiecare imagine e un <button> pentru accesibilitate (focus + Enter)
     return '<button class="galerie-item" data-index="' + i + '" aria-label="Deschide: ' + img.alt + '">' +
-             '<img src="' + img.src + '" alt="' + img.alt + '">' +
+             '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy">' +
            '</button>';
   }).join("");
 
@@ -56,7 +57,12 @@ function actualizeazaImagine() {
   const img = IMAGINI[indexCurent];
   lbImg.src = img.src;
   lbImg.alt = img.alt;
+  lbCaption.textContent = img.alt;
   lbCounter.textContent = (indexCurent + 1) + " / " + IMAGINI.length;
+  // Re-pornim animația de zoom la fiecare schimbare de imagine
+  lbImg.style.animation = "none";
+  void lbImg.offsetWidth; // forțăm reflow ca animația să se reaplice
+  lbImg.style.animation = "";
 }
 
 function inchideLightbox() {

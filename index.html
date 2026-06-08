@@ -6,7 +6,7 @@
   <meta name="description" content="LUMINA – Café & Reading Corner: cafea de specialitate, colț de lectură și evenimente culturale.">
   <title>LUMINA – Café & Reading Corner</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="assets/images/produs-cafea.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
   <!-- Navbar-ul este injectat de main.js -->
@@ -18,7 +18,7 @@
       <div class="container hero__grid">
         <div>
           <span class="eyebrow">Café &amp; Reading Corner</span>
-          <h1 class="hero__titlu">Un colț cald, o cafea bună<br>și o pagină în plus.</h1>
+          <h1 class="hero__titlu">Un colț cald, o <span class="accent">cafea</span> bună<br>și o <span class="accent">pagină</span> în plus.</h1>
           <p class="hero__subtitlu">
             La LUMINA îmbinăm cafeaua de specialitate cu liniștea unui colț de lectură
             și energia evenimentelor culturale. Te așteptăm la o ceașcă și o poveste.
@@ -29,16 +29,20 @@
           </div>
         </div>
         <div class="hero__media">
-          <img src="assets/images/hero.svg" alt="Interior cald de cafenea cu o ceașcă de cafea">
+          <img src="assets/images/photos/hero.jpg" alt="Interior cald de cafenea cu mese, plante și un bar de cafea">
         </div>
       </div>
+      <a class="hero__scroll" href="#despre" aria-label="Derulează în jos">
+        <span>Descoperă</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
     </section>
 
     <!-- ============ DESPRE ============ -->
-    <section class="sectiune container">
+    <section class="sectiune container" id="despre">
       <div class="hero__grid" style="align-items:center;">
         <div class="hero__media fade-in" style="aspect-ratio:4/5;">
-          <img src="assets/images/despre.svg" alt="Colțul de lectură LUMINA">
+          <img src="assets/images/photos/despre.jpg" alt="Colțul de lectură LUMINA cu o carte deschisă" loading="lazy">
         </div>
         <div class="fade-in">
           <span class="eyebrow">Despre LUMINA</span>
@@ -87,6 +91,28 @@
       </div>
     </section>
 
+    <!-- ============ STATISTICI (numere animate) ============ -->
+    <section class="sectiune--stransa container">
+      <div class="stats fade-in" id="stats">
+        <div class="stat">
+          <span class="stat__num" data-tinta="13">0</span>
+          <span class="stat__label">sortimente în meniu</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-tinta="7">0</span>
+          <span class="stat__label">evenimente lunare</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-tinta="450" data-sufix="+">0</span>
+          <span class="stat__label">cărți în colț</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-tinta="100" data-sufix="%">0</span>
+          <span class="stat__label">pasiune pentru cafea</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PRODUSE POPULARE ============ -->
     <section class="sectiune container">
       <span class="eyebrow text-center" style="display:block;">Din meniu</span>
@@ -120,7 +146,7 @@
         var card = document.createElement("article");
         card.className = "produs fade-in";
         card.innerHTML =
-          '<div class="produs__media"><img src="' + p.imagine + '" alt="' + p.nume + '"></div>' +
+          '<div class="produs__media"><img src="' + p.imagine + '" alt="' + p.nume + '" loading="lazy"></div>' +
           '<div class="produs__corp">' +
             '<span class="badge">' + p.categorie + '</span>' +
             '<div class="produs__cap"><h3 class="produs__nume">' + p.nume + '</h3>' +
@@ -149,6 +175,40 @@
 
       // Reactivăm observer-ul de fade-in pentru cardurile adăugate dinamic
       pornesteFadeIn();
+
+      // --- Numere animate (count-up) la intrarea în ecran ---
+      function animeazaNumar(el) {
+        var tinta = parseInt(el.dataset.tinta, 10);
+        var sufix = el.dataset.sufix || "";
+        var durata = 1400, start = null;
+        function pas(t) {
+          if (!start) start = t;
+          var progres = Math.min((t - start) / durata, 1);
+          // ease-out, ca să încetinească spre final
+          var val = Math.floor((1 - Math.pow(1 - progres, 3)) * tinta);
+          el.textContent = val + sufix;
+          if (progres < 1) requestAnimationFrame(pas);
+          else el.textContent = tinta + sufix;
+        }
+        requestAnimationFrame(pas);
+      }
+      var stats = document.getElementById("stats");
+      if (stats && "IntersectionObserver" in window) {
+        var obsStats = new IntersectionObserver(function (intrari) {
+          intrari.forEach(function (i) {
+            if (i.isIntersecting) {
+              i.target.querySelectorAll(".stat__num").forEach(animeazaNumar);
+              obsStats.unobserve(i.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        obsStats.observe(stats);
+      } else if (stats) {
+        // Fallback: setăm direct valorile finale
+        stats.querySelectorAll(".stat__num").forEach(function (el) {
+          el.textContent = el.dataset.tinta + (el.dataset.sufix || "");
+        });
+      }
     });
   </script>
 </body>

@@ -19,10 +19,19 @@ de practică.
   - Text: `"Segoe UI", system-ui, -apple-system, sans-serif`.
 - **Iconițe:** desenate ca SVG inline, direct în cod (fără bibliotecă de iconițe și
   fără CDN).
-- **Imagini:** toate imaginile sunt **placeholdere SVG generate local** (gradiente din
-  paleta proiectului, cu forme și etichete), aflate în `assets/images/`. Nu există
-  linkuri către imagini externe care ar putea pica. Ele pot fi înlocuite oricând cu
-  fotografii reale, păstrând aceleași nume de fișier.
+- **Fotografii:** imaginile de produse, evenimente, galerie, hero și „despre” sunt
+  fotografii reale cu **licență liberă de pe [Unsplash](https://unsplash.com)**
+  (gratuite pentru uz comercial și necomercial, fără atribuire obligatorie).
+  Ele au fost **descărcate local** în `assets/images/photos/`, astfel încât site-ul
+  să nu depindă de niciun link extern care ar putea pica.
+- **Grafică proprie:** logo-ul (favicon) și harta stilizată din pagina de Contact sunt
+  fișiere SVG desenate manual pentru acest proiect, aflate în `assets/images/`.
+
+### Notă despre fotografii (Unsplash)
+Fotografiile provin de pe Unsplash, sub [licența Unsplash](https://unsplash.com/license).
+Pentru o lucrare academică riguroasă, autorul poate adăuga, opțional, lista exactă a
+fotografilor în acest fișier. Dacă se doresc fotografii proprii, fișierele din
+`assets/images/photos/` pot fi înlocuite păstrând aceleași nume.
 
 ## Paleta de culori
 

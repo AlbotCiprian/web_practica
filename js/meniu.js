@@ -71,7 +71,7 @@ function randeazaProduse() {
   elLista.innerHTML = lista.map(function (p) {
     return '' +
       '<article class="produs">' +
-        '<div class="produs__media"><img src="' + p.imagine + '" alt="' + p.nume + '"></div>' +
+        '<div class="produs__media"><img src="' + p.imagine + '" alt="' + p.nume + '" loading="lazy"></div>' +
         '<div class="produs__corp">' +
           '<span class="badge">' + p.categorie + '</span>' +
           '<div class="produs__cap">' +

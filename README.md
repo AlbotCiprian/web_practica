@@ -19,7 +19,10 @@ tehnologii web fundamentale (HTML, CSS, JavaScript), **fără framework-uri și 
   fără bază de date și fără server.
 
 > Nu sunt folosite biblioteci sau framework-uri externe (fără React, Vue, jQuery,
-> Bootstrap, Tailwind) și niciun CDN. Toate imaginile sunt placeholdere SVG locale.
+> Bootstrap, Tailwind) și niciun CDN. Imaginile sunt fotografii reale cu licență
+> liberă (Unsplash), **descărcate local** în `assets/images/photos/`, plus câteva
+> elemente grafice SVG proprii (logo, hartă stilizată) – fără niciun link extern care
+> ar putea pica.
 
 ---
 

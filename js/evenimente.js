@@ -57,7 +57,7 @@ function randeaza() {
     const etichetaFav = esteFavorit(e.id) ? "♥ Favorit" : "Adaugă la favorite";
     return '' +
       '<article class="eveniment">' +
-        '<div class="eveniment__media"><img src="' + e.imagine + '" alt="' + e.titlu + '"></div>' +
+        '<div class="eveniment__media"><img src="' + e.imagine + '" alt="' + e.titlu + '" loading="lazy"></div>' +
         '<div class="eveniment__corp">' +
           '<span class="eveniment__data">' +
             '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>' +

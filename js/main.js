@@ -152,13 +152,29 @@ const ICONITE = {
 };
 
 /* ---------- 6. Animație fade-in la scroll (IntersectionObserver) ---------- */
+// Poate fi apelată de mai multe ori (și pentru conținut adăugat dinamic).
+// Folosim clasa „fade-init” ca să nu procesăm de două ori același element.
 function pornesteFadeIn() {
-  const elemente = document.querySelectorAll(".fade-in");
-  if (!("IntersectionObserver" in window) || elemente.length === 0) {
-    // Fallback: dacă nu există suport, arătăm direct elementele
-    elemente.forEach(function (el) { el.classList.add("vizibil"); });
+  const elemente = document.querySelectorAll(".fade-in:not(.fade-init)");
+  if (elemente.length === 0) return;
+
+  // Fallback: fără suport IntersectionObserver, arătăm direct elementele
+  if (!("IntersectionObserver" in window)) {
+    elemente.forEach(function (el) { el.classList.add("vizibil", "fade-init"); });
     return;
   }
+
+  // Decalaj (stagger) pe baza poziției între „frați”, pentru un efect în cascadă
+  elemente.forEach(function (el) {
+    el.classList.add("fade-init");
+    const copii = el.parentElement ? el.parentElement.children : [];
+    const frati = Array.prototype.filter.call(copii, function (c) {
+      return c.classList.contains("fade-in");
+    });
+    const idx = frati.indexOf(el);
+    el.style.transitionDelay = Math.min(idx, 5) * 90 + "ms"; // maxim ~450ms
+  });
+
   const observator = new IntersectionObserver(function (intrari) {
     intrari.forEach(function (intrare) {
       if (intrare.isIntersecting) {
@@ -166,9 +182,37 @@ function pornesteFadeIn() {
         observator.unobserve(intrare.target); // animăm o singură dată
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
   elemente.forEach(function (el) { observator.observe(el); });
+}
+
+/* ---------- 6b. Finisaje UX: bară de progres + buton „înapoi sus” ---------- */
+function injecteazaUX() {
+  // Bară de progres la scroll (sus de tot)
+  const bara = document.createElement("div");
+  bara.className = "scroll-progress";
+  document.body.appendChild(bara);
+
+  // Buton „Înapoi sus”
+  const sus = document.createElement("button");
+  sus.className = "to-top";
+  sus.setAttribute("aria-label", "Înapoi sus");
+  sus.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(sus);
+  sus.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Actualizăm bara și vizibilitatea butonului la scroll
+  function laScroll() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bara.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    sus.classList.toggle("vizibil", h.scrollTop > 500);
+  }
+  window.addEventListener("scroll", laScroll, { passive: true });
+  laScroll();
 }
 
 /* ---------- 7. Toast (notificare scurtă, refolosit de mai multe pagini) ---------- */
@@ -195,5 +239,6 @@ function afiseazaToast(mesaj) {
 document.addEventListener("DOMContentLoaded", function () {
   construiesteNavbar();
   construiesteFooter();
+  injecteazaUX();
   pornesteFadeIn();
 });
