@@ -47,7 +47,7 @@ COVER = {
     "titlu": "RAPORT DE PRACTICĂ",
     "subtitlu": "Aplicație web — LUMINA · Café & Reading Corner",
     "autor": "Nelly Prijilevschi",
-    "grupa": "Grupa: ___________",
+    "grupa": "Grupa: IAFR2502",
     "an": "Anul I",
     "loc": "Chișinău, 2026",
     "demo": DEMO_URL,

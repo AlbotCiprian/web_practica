@@ -6,7 +6,7 @@
 **FACULTATEA DE MATEMATICĂ ȘI INFORMATICĂ**  
 
 **Autor:** Nelly Prijilevschi  
-**Grupa: ___________**  
+**Grupa: IAFR2502**  
 **Specializare:** Anul I, Facultatea de Matematică și Informatică  
 **Chișinău, 2026**  
 
